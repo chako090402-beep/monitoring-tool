@@ -61,6 +61,14 @@ def process_pdf(pdf_file):
 
 # --- Streamlit 画面表示部分 ---
 st.set_page_config(page_title="評価表・モニタリング自動チェッカー", layout="wide")
+# --- ここから追加 ---
+from PIL import Image
+try:
+    image = Image.open('logo.jpg') # アップロードしたロゴのファイル名
+    st.image(image, width=200)    # 大きさは200くらいが丁度いいです
+except:
+    pass # もし画像がなくてもエラーにならないようにする魔法
+# --- ここまで追加 ---
 st.title("📄評価表・ モニタリング自動チェッカー")
 st.write("先月と今月のPDFをアップロードして、変更漏れを自動チェックします。")
 
