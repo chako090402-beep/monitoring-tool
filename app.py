@@ -117,3 +117,24 @@ if old_file and new_file:
             with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
                 df.to_excel(writer, index=False)
             st.download_button(label="📥 結果をExcelでダウンロード", data=output.getvalue(), file_name="チェック結果.xlsx")
+# --- 最終デザイン：上下ライン ＋ タイトルを茶色に ---
+st.markdown("""
+    <style>
+    /* 画面全体に上下の茶色ラインを引く */
+    .stApp {
+        border-top: 25px solid #6F4E37 !important;
+        border-bottom: 15px solid #6F4E37 !important;
+    }
+    
+    /* タイトル(H1)の文字色を茶色にする */
+    h1 {
+        color: #6F4E37 !important;
+        font-weight: bold;
+    }
+
+    /* ヘッダーの余計な背景を消す */
+    header {
+        background-color: rgba(0,0,0,0) !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
